@@ -1,0 +1,25 @@
+syntax="proto3";
+
+// Definisi Package di Golang. Ketika 
+// protobuf digenerate, maka akan mengikuti struktur folder
+// berikut
+option go_package="github.com/kecci/go-grpc/common/model";
+
+// Definisi package
+package user;
+
+// Define RPC service
+service UserService {
+  rpc GreetUser(GreetingRequest) returns (GreetingResponse);
+}
+
+// Request Payload
+message GreetingRequest {
+  string name = 1; // the number is versioning of serialization protobuf. Should be unique.
+  string salutation = 2; // the number is versioning of serialization protobuf. Should be unique.
+}
+
+// Response Payload
+message GreetingResponse {
+  string GreetingMessage = 1;
+}
